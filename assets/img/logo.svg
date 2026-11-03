@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="VozSegura">
+  <path d="M24 3 6 10v12c0 11.1 7.7 21.4 18 24 10.3-2.6 18-12.9 18-24V10L24 3z" fill="#1E3A8A"/>
+  <path d="M24 7.3 10 12.8V22c0 8.9 5.9 17.2 14 19.7 8.1-2.5 14-10.8 14-19.7v-9.2L24 7.3z" fill="#00236F"/>
+  <g stroke="#10B981" stroke-width="3" stroke-linecap="round">
+    <line x1="15" y1="22" x2="15" y2="28"/>
+    <line x1="19.5" y1="18" x2="19.5" y2="32"/>
+    <line x1="24" y1="14" x2="24" y2="36"/>
+    <line x1="28.5" y1="18" x2="28.5" y2="32"/>
+    <line x1="33" y1="22" x2="33" y2="28"/>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+/* VozSegura - estilos base complementarios a Tailwind */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 9rem; /* compensa el header fijo al navegar por anclas */
+}
+
+body {
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+/* Iconos Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
+  user-select: none;
+}
+.icon-fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Foco visible y grueso (accesibilidad para adultos mayores) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #0058be;
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+}
+
+/* Enlace "saltar al contenido" */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: #00236f;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Animación suave de aparición para pasos del test */
+.quiz-step:not(.hidden) {
+  animation: fade-in 0.25s ease-out;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

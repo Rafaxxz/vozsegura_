@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VozSegura - Protección contra Estafas y Clonación de Voz</title>
+  <meta name="description" content="Descubre en menos de 2 minutos si tú o tus padres podrían caer en una estafa de voz clonada por Inteligencia Artificial. Test de riesgo gratuito y app de verificación de llamadas." />
+  <meta name="theme-color" content="#00236f" />
+
+  <!-- Open Graph (vista previa al compartir por WhatsApp / redes) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VozSegura - Recupera la tranquilidad al contestar tu teléfono" />
+  <meta property="og:description" content="Test gratuito: ¿qué tan expuesto estás a una estafa por voz clonada con IA?" />
+  <meta property="og:image" content="assets/img/logo.svg" />
+  <meta property="og:locale" content="es_PE" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=block" rel="stylesheet" />
+
+  <!-- Tailwind (CDN) + tokens de diseño -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!--
+    Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID y descomenta.
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  -->
+
+  <!-- Datos estructurados FAQ (SEO / GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "¿Se requiere saber mucho de tecnología para usar la App?",
+       "acceptedAnswer": {"@type": "Answer", "text": "No. La aplicación fue diseñada para personas mayores de 60 años y funciona de manera automática: el semáforo en pantalla muestra en verde o rojo si la llamada es segura."}},
+      {"@type": "Question", "name": "¿Es legal analizar la voz de una llamada en Perú?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Sí. El sistema actúa como un filtro de seguridad local en el dispositivo, en cumplimiento de la Ley de Protección de Datos Personales N° 29733."}},
+      {"@type": "Question", "name": "¿Qué hago si recibo una llamada pidiendo dinero urgente?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Aplica el Protocolo de 60 Segundos: Respira, Cuelga y Verifica llamando tú mismo al número habitual de tu familiar o pidiendo la palabra clave secreta."}},
+      {"@type": "Question", "name": "¿Mis datos y audios de llamadas quedan guardados?",
+       "acceptedAnswer": {"@type": "Answer", "text": "No. VozSegura nunca guarda grabaciones de tus conversaciones; el análisis se borra inmediatamente después de emitir el resultado."}}
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-surface-canvas font-sans text-body-md text-text-primary antialiased">
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-surface-card/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+    <!-- Barra de asistencia -->
+    <div class="bg-traffic-safe-surface px-margin-mobile md:px-margin py-2 text-center">
+      <div class="max-w-[1200px] mx-auto flex flex-wrap items-center justify-center gap-x-space-xs gap-y-1 text-[15px] md:text-label-md">
+        <span class="material-symbols-outlined text-traffic-safe-border text-[20px]" aria-hidden="true">verified_user</span>
+        <span class="font-semibold text-traffic-safe-border">
+          <span class="hidden md:inline">Línea de Asistencia y Verificación Gratuita para Adultos Mayores:</span>
+          <span class="md:hidden">Ayuda gratuita:</span>
+        </span>
+        <a class="font-bold text-primary hover:underline" href="tel:080000869">0800-00-VOZ (Perú)</a>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="h-20 max-w-[1200px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-space-md">
+      <a href="#inicio" class="flex items-center gap-space-sm" aria-label="VozSegura, ir al inicio">
+        <img src="assets/img/logo.svg" alt="" class="h-10 w-10" width="40" height="40" />
+        <span class="flex flex-col leading-tight">
+          <span class="text-headline-sm text-primary tracking-tight">VozSegura</span>
+          <span class="text-[13px] font-semibold text-text-muted hidden sm:block">Protección Familiar contra IA</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Principal">
+        <a class="px-space-sm py-2 rounded-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="#como-funciona">¿Cómo funciona?</a>
+        <a class="px-space-sm py-2 rounded-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="#test-riesgo">Test de Riesgo</a>
+        <a class="px-space-sm py-2 rounded-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="#planes">Planes</a>
+        <a class="px-space-sm py-2 rounded-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="#ayuda-faq">Ayuda / Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-space-xs">
+        <a href="#test-riesgo" data-track="click_hero_test_button" data-track-location="header"
+           class="hidden sm:inline-flex items-center justify-center min-h-[56px] px-6 rounded-xl bg-primary-container text-on-primary text-label-lg hover:bg-primary transition-colors shadow-[0_4px_12px_-2px_rgba(15,23,42,0.15)]">
+          <span class="material-symbols-outlined mr-2 text-[22px]" aria-hidden="true">shield</span>
+          Probar Test Gratis
+        </a>
+        <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"
+                class="lg:hidden w-14 h-14 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[30px]" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <nav id="mobile-menu" class="hidden lg:hidden border-t border-border-subtle bg-surface-card px-margin-mobile pb-space-md" aria-label="Menú móvil">
+      <ul class="flex flex-col py-space-xs text-label-lg">
+        <li><a class="block py-4 px-2 rounded-lg hover:bg-surface-container" href="#como-funciona">¿Cómo funciona?</a></li>
+        <li><a class="block py-4 px-2 rounded-lg hover:bg-surface-container" href="#test-riesgo">Test de Riesgo</a></li>
+        <li><a class="block py-4 px-2 rounded-lg hover:bg-surface-container" href="#planes">Planes</a></li>
+        <li><a class="block py-4 px-2 rounded-lg hover:bg-surface-container" href="#ayuda-faq">Ayuda / Blog</a></li>
+      </ul>
+      <a href="#test-riesgo" data-track="click_hero_test_button" data-track-location="mobile_menu"
+         class="flex items-center justify-center min-h-[56px] rounded-xl bg-primary-container text-on-primary text-label-lg">
+        <span class="material-symbols-outlined mr-2" aria-hidden="true">shield</span>
+        Probar Test Gratis
+      </a>
+    </nav>
+  </header>
+
+  <main id="contenido" class="w-full pt-[140px] md:pt-[124px]">
+
+    <!-- =========================================================
+         1. HERO
+         ========================================================= -->
+    <section id="inicio" class="relative w-full overflow-hidden py-space-xl lg:py-24">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="inline-flex items-center gap-space-xs px-4 py-2 rounded-full bg-traffic-safe-surface mb-space-md shadow-sm">
+          <span class="material-symbols-outlined icon-fill text-traffic-safe-border text-[22px]" aria-hidden="true">verified</span>
+          <span class="text-[15px] md:text-label-md font-bold text-traffic-safe-border">Diseñado con estándares WCAG AAA para adultos mayores y cuidadores</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+          <!-- Texto y CTAs -->
+          <div class="lg:col-span-7 flex flex-col items-start">
+            <h1 class="text-display-hero-mobile md:text-display-hero text-text-primary tracking-tight mb-space-md">
+              Recupera la tranquilidad al contestar tu teléfono
+            </h1>
+            <p class="text-body-lg md:text-body-xl text-text-secondary mb-space-lg max-w-xl">
+              Descubre en menos de 2 minutos si tú o tus padres podrían caer en una estafa de voz clonada por Inteligencia Artificial.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full mb-space-lg">
+              <a href="#test-riesgo" data-track="click_hero_test_button" data-track-location="hero"
+                 class="group inline-flex items-center justify-center min-h-[56px] px-8 rounded-xl bg-traffic-danger text-on-primary text-label-lg shadow-lg hover:bg-traffic-danger-border transition-colors">
+                <span class="material-symbols-outlined mr-2 text-[26px]" aria-hidden="true">shield</span>
+                Hacer el Test de Riesgo GRATIS
+                <span class="material-symbols-outlined ml-2 text-[22px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+              </a>
+              <a href="#descarga" data-track="app_download_click" data-track-location="hero"
+                 class="inline-flex items-center justify-center min-h-[56px] px-6 rounded-xl bg-surface-card text-primary text-label-lg shadow-md ring-1 ring-border-subtle hover:bg-surface-container transition-colors">
+                <span class="material-symbols-outlined mr-2 text-[24px]" aria-hidden="true">download</span>
+                Descargar App
+              </a>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-space-md text-text-muted text-label-md">
+              <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[24px]" aria-hidden="true">shop</span>
+                Google Play Oficial
+              </span>
+              <span class="text-border-strong" aria-hidden="true">•</span>
+              <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[24px]" aria-hidden="true">phone_iphone</span>
+                Apple App Store
+              </span>
+            </div>
+          </div>
+
+          <!-- Simulador del semáforo -->
+          <div class="lg:col-span-5 relative mt-space-lg lg:mt-0">
+            <div class="relative mx-auto max-w-[340px] rounded-[36px] bg-text-primary p-4 shadow-2xl">
+              <div class="relative overflow-hidden rounded-[28px] bg-surface-card p-space-md flex flex-col justify-between min-h-[520px]">
+                <div class="flex items-center justify-between text-text-muted text-xs mb-4" aria-hidden="true">
+                  <span class="font-bold">11:42 AM</span>
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+                    <span class="material-symbols-outlined text-[16px]">wifi</span>
+                    <span class="material-symbols-outlined text-[16px]">battery_full</span>
+                  </span>
+                </div>
+
+                <div class="flex rounded-xl bg-surface-card-subtle p-1 mb-4 shadow-inner" role="group" aria-label="Probar el semáforo">
+                  <button type="button" data-sim-state="safe" aria-pressed="true"
+                          class="flex-1 min-h-[44px] rounded-lg text-sm font-bold transition-all bg-surface-card text-traffic-safe-border shadow-sm flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+                    Voz Real
+                  </button>
+                  <button type="button" data-sim-state="danger" aria-pressed="false"
+                          class="flex-1 min-h-[44px] rounded-lg text-sm font-bold transition-all text-text-muted hover:text-text-primary flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">warning</span>
+                    Voz Clonada
+                  </button>
+                </div>
+
+                <div class="flex flex-col items-center text-center my-auto" aria-live="polite">
+                  <div id="sim-avatar-container" class="relative w-24 h-24 rounded-full bg-traffic-safe-surface flex items-center justify-center mb-space-sm shadow-md transition-all">
+                    <span id="sim-avatar-icon" class="material-symbols-outlined text-traffic-safe-border text-[48px]" aria-hidden="true">person</span>
+                  </div>
+                  <h2 id="sim-caller-name" class="text-headline-sm text-text-primary">Hijo Carlos</h2>
+                  <p id="sim-caller-subtitle" class="text-label-md text-text-muted mt-1">Llamada de voz entrante...</p>
+                </div>
+
+                <div id="sim-status-box" class="rounded-2xl p-space-sm bg-traffic-safe-surface text-center shadow-sm transition-all mb-4" aria-live="polite">
+                  <div class="flex items-center justify-center gap-2 mb-1">
+                    <span id="sim-status-badge-icon" class="material-symbols-outlined text-traffic-safe-border text-[24px]" aria-hidden="true">verified</span>
+                    <span id="sim-status-badge-title" class="text-base font-bold text-traffic-safe-border">Voz Verificada 100% Auténtica</span>
+                  </div>
+                  <p id="sim-status-desc" class="text-sm font-medium text-traffic-safe-border">Patrón biométrico familiar validado.</p>
+                </div>
+
+                <div class="flex items-center justify-around pt-2" aria-hidden="true">
+                  <div class="flex flex-col items-center gap-1">
+                    <div class="w-14 h-14 rounded-full bg-traffic-danger flex items-center justify-center shadow-md">
+                      <span class="material-symbols-outlined text-on-primary text-[28px]">call_end</span>
+                    </div>
+                    <span class="text-xs text-text-muted font-bold">Rechazar</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1">
+                    <div class="w-14 h-14 rounded-full bg-traffic-safe-border flex items-center justify-center shadow-md">
+                      <span class="material-symbols-outlined text-on-primary text-[28px]">call</span>
+                    </div>
+                    <span class="text-xs text-text-muted font-bold">Responder</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-label-md text-text-muted mt-space-sm">Toca “Voz Clonada” para ver la alerta</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. EL PROBLEMA
+         ========================================================= -->
+    <section class="w-full bg-surface-card py-space-xl lg:py-24" aria-labelledby="problema-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <span class="text-label-lg text-traffic-danger font-bold tracking-wider uppercase mb-2 block">Amenaza Digital Inmediata</span>
+          <h2 id="problema-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">El engaño hoy suena a amor y urgencia</h2>
+          <p class="text-body-lg text-text-secondary">Las estafas tradicionales evolucionaron a clonación de voz por IA en cuestión de segundos.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <article class="bg-surface-canvas rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-error-container flex items-center justify-center mb-space-md text-traffic-danger">
+                <span class="material-symbols-outlined text-[32px]" aria-hidden="true">graphic_eq</span>
+              </div>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">Secuestro de Voz en Segundos</h3>
+              <p class="text-body-md text-text-secondary">Con solo 3 segundos de un audio de WhatsApp o video público, los delincuentes imitan el tono exacto de tu familiar con inteligencia artificial.</p>
+            </div>
+            <p class="mt-space-md text-label-md text-traffic-danger font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">timer</span>
+              Clonación en tiempo récord
+            </p>
+          </article>
+
+          <article class="bg-surface-canvas rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-surface-variant flex items-center justify-center mb-space-md text-primary">
+                <span class="material-symbols-outlined text-[32px]" aria-hidden="true">psychology_alt</span>
+              </div>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">La Trampa Emocional</h3>
+              <p class="text-body-md text-text-secondary">Llaman a altas horas de la noche simulando accidentes, emergencias médicas o detenciones policiales para evitar que pienses con claridad y actúes por impulso.</p>
+            </div>
+            <p class="mt-space-md text-label-md text-secondary font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">crisis_alert</span>
+              Ataque de shock psicológico
+            </p>
+          </article>
+
+          <article class="bg-surface-canvas rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-traffic-safe-surface flex items-center justify-center mb-space-md text-traffic-safe-border">
+                <span class="material-symbols-outlined text-[32px]" aria-hidden="true">hearing</span>
+              </div>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">No es Cuestión de Ingenuidad</h3>
+              <p class="text-body-md text-text-secondary">Las estafas con IA están diseñadas para engañar el oído humano de cualquier edad. Ni profesionales ni jóvenes logran distinguirlas sin análisis técnico.</p>
+            </div>
+            <p class="mt-space-md text-label-md text-traffic-safe-border font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">security</span>
+              Requiere verificación digital
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. LEAD MAGNET: TEST DE RIESGO
+         ========================================================= -->
+    <section id="test-riesgo" class="w-full py-space-xl lg:py-24" aria-labelledby="test-titulo">
+      <div class="max-w-[800px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center mb-space-lg">
+          <span class="text-label-lg text-primary font-bold tracking-wider uppercase mb-2 block">Evaluación Interactiva</span>
+          <h2 id="test-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">¿Qué tan expuesto estás a una estafa por voz clonada?</h2>
+          <p class="text-body-lg text-text-secondary">Responde 4 preguntas sencillas y recibe tu diagnóstico personalizado al instante.</p>
+        </div>
+
+        <div class="bg-surface-card rounded-3xl p-space-md sm:p-space-lg md:p-10 shadow-lg">
+          <!-- Progreso -->
+          <div class="mb-space-lg">
+            <div class="flex justify-between items-center mb-2">
+              <span id="quiz-step-label" class="text-label-lg text-primary">Paso 1 de 4</span>
+              <span id="quiz-percent-label" class="text-label-md text-text-muted">25% completado</span>
+            </div>
+            <div id="quiz-progress" class="w-full bg-surface-card-subtle h-3 rounded-full overflow-hidden"
+                 role="progressbar" aria-label="Progreso del test" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+              <div id="quiz-progress-bar" class="bg-primary h-full transition-all duration-300 rounded-full" style="width:25%"></div>
+            </div>
+          </div>
+
+          <!-- Paso 1 -->
+          <div id="quiz-step-1" class="quiz-step flex flex-col">
+            <h3 tabindex="-1" class="text-headline-sm text-text-primary mb-space-md outline-none">1. ¿Sueles contestar llamadas de números desconocidos?</h3>
+            <p class="text-body-md text-text-secondary mb-space-md">Muchos estafadores llaman sin registrarse para probar si la línea pertenece a un adulto mayor activo.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <button type="button" data-step="1" data-answer="yes" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>Sí, casi siempre contesto</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+              <button type="button" data-step="1" data-answer="no" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>No, los ignoro</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div id="quiz-step-2" class="quiz-step hidden flex flex-col">
+            <h3 tabindex="-1" class="text-headline-sm text-text-primary mb-space-md outline-none">2. ¿Tienes publicaciones o audios públicos en redes sociales tú o tus hijos?</h3>
+            <p class="text-body-md text-text-secondary mb-space-md">TikTok, Instagram y Facebook son la fuente número uno de donde se extraen muestras de voz familiares.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <button type="button" data-step="2" data-answer="yes" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>Sí, tenemos perfiles abiertos</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+              <button type="button" data-step="2" data-answer="no" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>No, todo es privado</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div id="quiz-step-3" class="quiz-step hidden flex flex-col">
+            <h3 tabindex="-1" class="text-headline-sm text-text-primary mb-space-md outline-none">3. ¿Cuentas con una palabra clave secreta familiar para emergencias?</h3>
+            <p class="text-body-md text-text-secondary mb-space-md">Un código secreto permite confirmar inmediatamente si quien habla es realmente quien dice ser.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <button type="button" data-step="3" data-answer="yes" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>Sí, ya tenemos una palabra</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+              <button type="button" data-step="3" data-answer="no" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>No, nunca lo hemos hablado</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div id="quiz-step-4" class="quiz-step hidden flex flex-col">
+            <h3 tabindex="-1" class="text-headline-sm text-text-primary mb-space-md outline-none">4. ¿Sabrías cómo actuar si recibes una llamada de un familiar pidiendo dinero urgente?</h3>
+            <p class="text-body-md text-text-secondary mb-space-md">La regla de oro es colgar y llamar directamente al número guardado antes de hacer cualquier transferencia.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <button type="button" data-step="4" data-answer="yes" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>Sí, conozco el protocolo</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+              <button type="button" data-step="4" data-answer="no" class="quiz-option min-h-[64px] rounded-2xl bg-surface-card-subtle hover:bg-surface-container text-label-lg text-text-primary p-4 flex items-center justify-between text-left transition-colors">
+                <span>Dudaría o entraría en pánico</span><span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Resultado + captura de lead -->
+          <div id="quiz-step-result" class="quiz-step hidden flex flex-col items-center text-center" aria-live="polite">
+            <div class="w-16 h-16 rounded-full bg-traffic-danger-surface flex items-center justify-center text-traffic-danger mb-space-sm">
+              <span class="material-symbols-outlined text-[36px]" aria-hidden="true">shield_with_heart</span>
+            </div>
+            <h3 tabindex="-1" class="text-headline-md text-text-primary mb-space-md outline-none">¡Evaluación Lista!</h3>
+
+            <!-- Feedback inmediato -->
+            <div id="risk-card" class="w-full max-w-md rounded-2xl p-space-md mb-space-md text-left bg-traffic-danger-surface">
+              <p id="risk-level" class="text-headline-sm text-traffic-danger">Riesgo</p>
+              <div class="w-full h-3 bg-surface-card rounded-full overflow-hidden my-space-xs" aria-hidden="true">
+                <div id="risk-meter" class="h-full rounded-full bg-traffic-danger" style="width:0"></div>
+              </div>
+              <p id="risk-msg" class="text-body-md text-text-secondary"></p>
+            </div>
+
+            <p class="text-body-lg text-text-secondary max-w-lg mb-space-md">
+              Ingresa tu correo para recibir tu diagnóstico completo y la <strong>Guía Familiar Anti-Estafas</strong> en tu e-mail.
+            </p>
+            <form id="lead-form" class="w-full max-w-md flex flex-col gap-space-sm text-left mb-space-md" novalidate>
+              <div>
+                <label for="lead-email" class="block text-label-lg text-text-primary mb-1">Tu Correo Electrónico:</label>
+                <input id="lead-email" type="email" required autocomplete="email" placeholder="ejemplo@correo.com"
+                       class="w-full min-h-[56px] px-4 rounded-xl bg-surface-canvas border-2 border-border-subtle text-body-md text-text-primary focus:outline-none focus:border-primary focus:bg-surface-card" />
+              </div>
+              <button type="submit" class="w-full min-h-[56px] rounded-xl bg-primary text-on-primary text-label-lg hover:bg-primary-container transition-colors flex items-center justify-center gap-2 shadow-md">
+                <span class="material-symbols-outlined text-[24px]" aria-hidden="true">verified</span>
+                Obtener Diagnóstico y Guía Gratis
+              </button>
+            </form>
+            <div id="lead-confirmation-msg" class="hidden w-full max-w-md mb-space-md p-4 rounded-xl bg-traffic-safe-surface text-traffic-safe-border text-label-md" role="status">
+              ¡Excelente! Tu diagnóstico y guía han sido enviados a tu correo. Revisa tu bandeja de entrada.
+            </div>
+
+            <!-- Growth loop: WhatsApp -->
+            <div class="w-full max-w-md pt-space-sm">
+              <p class="text-label-md text-text-muted mb-2">¿Quieres cuidar también a tus padres o hermanos?</p>
+              <a id="whatsapp-share" href="#" target="_blank" rel="noopener noreferrer" data-track="share_test_whatsapp"
+                 class="w-full min-h-[56px] px-4 rounded-xl bg-traffic-safe-border text-on-primary text-label-lg hover:bg-[#065f46] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                <span class="material-symbols-outlined text-[24px]" aria-hidden="true">share</span>
+                Compartir Test con mi Familia por WhatsApp
+              </a>
+              <button id="quiz-restart" type="button" class="mt-space-sm min-h-[48px] text-label-md text-primary underline underline-offset-4">Volver a hacer el test</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. SOLUCIÓN
+         ========================================================= -->
+    <section id="como-funciona" class="w-full bg-surface-card py-space-xl lg:py-24" aria-labelledby="solucion-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <span class="text-label-lg text-primary font-bold tracking-wider uppercase mb-2 block">Tecnología Preventiva Simple</span>
+          <h2 id="solucion-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">Verificación inteligente en tiempo real</h2>
+          <p class="text-body-lg text-text-secondary">Protección activa sin configuraciones confusas. Diseñada para operar silenciosamente en segundo plano.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <article class="bg-surface-canvas rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-traffic-safe-surface flex items-center justify-center mb-space-md text-traffic-safe-border shadow-sm">
+                <span class="material-symbols-outlined text-[36px]" aria-hidden="true">traffic</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card text-sm font-bold text-text-muted mb-2">
+                <span class="w-2 h-2 rounded-full bg-traffic-safe"></span><span class="w-2 h-2 rounded-full bg-traffic-danger"></span>
+                En Llamada Activa
+              </span>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">Alerta Semáforo en Llamadas</h3>
+              <p class="text-body-md text-text-secondary">La app analiza en segundos la biometría vocal y te indica en pantalla gigante si la voz es real (Verde) o si es clonada (Rojo).</p>
+            </div>
+            <p class="mt-space-md text-label-md text-primary font-bold">100% automático y visual</p>
+          </article>
+
+          <article class="bg-surface-canvas rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-surface-variant flex items-center justify-center mb-space-md text-primary shadow-sm">
+                <span class="material-symbols-outlined text-[36px]" aria-hidden="true">smart_toy</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card text-sm font-bold text-text-muted mb-2">
+                <span class="material-symbols-outlined text-[16px] text-primary" aria-hidden="true">record_voice_over</span>
+                Voz y Chat 24/7
+              </span>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">Asistente Vozy</h3>
+              <p class="text-body-md text-text-secondary">Chatbot y asistente de voz que responde tus dudas ante llamadas o mensajes sospechosos, en lenguaje claro y empático.</p>
+            </div>
+            <p class="mt-space-md text-label-md text-primary font-bold">Resuelve dudas al instante</p>
+          </article>
+
+          <article class="bg-surface-canvas rounded-3xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-error-container flex items-center justify-center mb-space-md text-traffic-danger shadow-sm">
+                <span class="material-symbols-outlined text-[36px]" aria-hidden="true">group_add</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card text-sm font-bold text-text-muted mb-2">
+                <span class="material-symbols-outlined text-[16px] text-traffic-danger" aria-hidden="true">notifications_active</span>
+                Red de Cuidadores
+              </span>
+              <h3 class="text-headline-sm text-text-primary mb-space-xs">Loop de Protección Familiar</h3>
+              <p class="text-body-md text-text-secondary">Envía notificaciones instantáneas a los teléfonos de los hijos si el adulto mayor recibe una llamada de alto riesgo.</p>
+            </div>
+            <p class="mt-space-md text-label-md text-primary font-bold">Notificación simultánea</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PRUEBA SOCIAL
+         ========================================================= -->
+    <section class="w-full py-space-xl lg:py-24" aria-labelledby="testimonios-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <span class="text-label-lg text-traffic-safe-border font-bold tracking-wider uppercase mb-2 block">Testimonios de Confianza</span>
+          <h2 id="testimonios-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">Familias que ya contestan con tranquilidad</h2>
+          <p class="text-body-lg text-text-secondary">Historias de prevención y protección cotidiana en Perú.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-space-xl">
+          <figure class="bg-surface-card rounded-3xl p-space-lg shadow-md flex flex-col justify-between">
+            <div class="mb-space-md">
+              <div class="flex items-center gap-1 text-amber-500 mb-space-sm" aria-label="5 de 5 estrellas">
+                <span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span>
+              </div>
+              <blockquote class="text-body-lg text-text-primary italic">
+                “Pensé que me estaba llamando mi hijo de verdad. Gracias a la recomendación de mi hija hicimos el test y descargamos VozSegura. Ahora me siento protegida en casa y no tengo miedo al contestar.”
+              </blockquote>
+            </div>
+            <figcaption class="flex items-center gap-space-sm pt-space-sm">
+              <span class="w-14 h-14 rounded-full bg-surface-variant text-primary flex items-center justify-center text-label-lg shrink-0" aria-hidden="true">RM</span>
+              <span>
+                <span class="block text-label-lg text-text-primary">Rosa M. (68 años)</span>
+                <span class="block text-sm text-text-muted">San Borja, Lima • Usuaria protegida</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="bg-surface-card rounded-3xl p-space-lg shadow-md flex flex-col justify-between">
+            <div class="mb-space-md">
+              <div class="flex items-center gap-1 text-amber-500 mb-space-sm" aria-label="5 de 5 estrellas">
+                <span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span><span class="material-symbols-outlined icon-fill" aria-hidden="true">star</span>
+              </div>
+              <blockquote class="text-body-lg text-text-primary italic">
+                “Trabajo todo el día y me preocupaba que llamen a mi mamá sola a estafarla. Con el Plan Familiar recibo alertas en mi teléfono si algo pasa. Es la mejor inversión de paz mental que pude hacer.”
+              </blockquote>
+            </div>
+            <figcaption class="flex items-center gap-space-sm pt-space-sm">
+              <span class="w-14 h-14 rounded-full bg-traffic-safe-surface text-traffic-safe-border flex items-center justify-center text-label-lg shrink-0" aria-hidden="true">CV</span>
+              <span>
+                <span class="block text-label-lg text-text-primary">Carlos V. (42 años)</span>
+                <span class="block text-sm text-text-muted">Hijo cuidador y suscriptor activo</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Sellos de confianza -->
+        <div class="bg-surface-card rounded-2xl p-space-md shadow-sm">
+          <ul class="flex flex-wrap items-center justify-around gap-space-md text-center">
+            <li class="flex items-center gap-2 text-label-md text-text-secondary font-bold">
+              <span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">policy</span>
+              Alineado a Guías de PNP Ciberdelincuencia
+            </li>
+            <li class="flex items-center gap-2 text-label-md text-text-secondary font-bold">
+              <span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">lock</span>
+              Certificación SSL 256-bit Bancaria
+            </li>
+            <li class="flex items-center gap-2 text-label-md text-text-secondary font-bold">
+              <span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">fingerprint</span>
+              Biometría Encriptada de Extremo a Extremo
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. PLANES
+         ========================================================= -->
+    <section id="planes" class="w-full bg-surface-card py-space-xl lg:py-24" aria-labelledby="planes-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <span class="text-label-lg text-primary font-bold tracking-wider uppercase mb-2 block">Protección a tu Medida</span>
+          <h2 id="planes-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">Elige la protección que mejor se adapte a tu familia</h2>
+          <p class="text-body-lg text-text-secondary">Planes flexibles sin contratos forzosos. Cancela en cualquier momento con un solo toque.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-xl lg:gap-gutter items-stretch">
+          <!-- Freemium -->
+          <article class="bg-surface-canvas rounded-3xl p-space-lg shadow-sm ring-1 ring-border-subtle flex flex-col justify-between">
+            <div>
+              <span class="text-sm font-bold uppercase tracking-wider text-text-muted block mb-2">Comienza sin costo</span>
+              <h3 class="text-headline-md text-text-primary mb-2">Plan Freemium</h3>
+              <p class="text-body-md text-text-secondary mb-space-md">Herramientas esenciales para proteger un teléfono individual.</p>
+              <p class="flex items-baseline gap-1 mb-space-lg">
+                <span class="text-[44px] leading-none font-extrabold text-text-primary">S/ 0</span>
+                <span class="text-label-md text-text-muted">/ para siempre</span>
+              </p>
+              <ul class="space-y-3 mb-space-lg text-body-md text-text-secondary">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>Validador básico de llamadas</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>Semáforo visual de alerta</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>Asistente Vozy básico (5 consultas/mes)</li>
+                <li class="flex items-start gap-2 text-text-muted"><span class="material-symbols-outlined mt-0.5" aria-hidden="true">close</span><span><span class="line-through">Alertas automáticas a familiares</span><span class="sr-only"> (no incluido)</span></span></li>
+              </ul>
+            </div>
+            <a href="#descarga" data-track="app_download_click" data-track-location="plan_freemium"
+               class="w-full min-h-[56px] rounded-xl bg-surface-card text-primary text-label-lg ring-2 ring-primary hover:bg-surface-container flex items-center justify-center transition-colors">
+              Descargar Gratis
+            </a>
+          </article>
+
+          <!-- SMART PRO (destacado) -->
+          <article class="relative bg-primary text-on-primary rounded-3xl p-space-lg shadow-xl flex flex-col justify-between lg:-translate-y-4">
+            <span class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1.5 rounded-full bg-traffic-safe-border text-on-primary text-sm font-extrabold tracking-wide uppercase shadow-md">Más Recomendado</span>
+            <div>
+              <span class="text-sm font-bold uppercase tracking-wider text-surface-variant block mb-2">Máxima Protección Personal</span>
+              <h3 class="text-headline-md mb-2">Plan SMART PRO</h3>
+              <p class="text-body-md text-surface-variant mb-space-md">Detección neuronal en vivo y comunicación directa con hijos.</p>
+              <p class="flex items-baseline gap-1 mb-space-lg">
+                <span class="text-[44px] leading-none font-extrabold">S/ 19.90</span>
+                <span class="text-label-md text-surface-variant">/ mes</span>
+              </p>
+              <ul class="space-y-3 mb-space-lg text-body-md">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5" aria-hidden="true">verified</span>Verificación biométrica avanzada en tiempo real</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5" aria-hidden="true">verified</span>Alerta inmediata a 2 teléfonos de familiares</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5" aria-hidden="true">verified</span>Asistente Vozy ilimitado por voz y texto</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5" aria-hidden="true">verified</span>Línea telefónica prioritaria anti-fraude</li>
+              </ul>
+            </div>
+            <a href="#descarga" data-track="app_download_click" data-track-location="plan_pro"
+               class="w-full min-h-[56px] rounded-xl bg-surface-card text-primary text-label-lg hover:bg-tertiary-fixed flex items-center justify-center transition-colors shadow-md">
+              Probar 7 Días Gratis
+            </a>
+          </article>
+
+          <!-- ELITE Familiar -->
+          <article class="bg-surface-canvas rounded-3xl p-space-lg shadow-sm ring-1 ring-border-subtle flex flex-col justify-between">
+            <div>
+              <span class="text-sm font-bold uppercase tracking-wider text-text-muted block mb-2">Cuidado Integral</span>
+              <h3 class="text-headline-md text-text-primary mb-2">Plan ELITE Familiar</h3>
+              <p class="text-body-md text-text-secondary mb-space-md">Escudo total para abuelos, padres e hijos en una sola cuenta.</p>
+              <p class="flex items-baseline gap-1 mb-space-lg">
+                <span class="text-[44px] leading-none font-extrabold text-text-primary">S/ 39.90</span>
+                <span class="text-label-md text-text-muted">/ mes total</span>
+              </p>
+              <ul class="space-y-3 mb-space-lg text-body-md text-text-secondary">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span><span>Protección multiservicio para <strong>hasta 5 miembros</strong></span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>Notificaciones Push y SMS instantáneos</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>GPS y botón de pánico de emergencia familiar</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-traffic-safe-border mt-0.5" aria-hidden="true">check_circle</span>Auditoría periódica de perfiles y números de riesgo</li>
+              </ul>
+            </div>
+            <a href="#descarga" data-track="app_download_click" data-track-location="plan_elite"
+               class="w-full min-h-[56px] rounded-xl bg-primary text-on-primary text-label-lg hover:bg-primary-container flex items-center justify-center transition-colors shadow-md">
+              Probar Plan Familiar
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. PREGUNTAS FRECUENTES
+         ========================================================= -->
+    <section id="ayuda-faq" class="w-full py-space-xl lg:py-24" aria-labelledby="faq-titulo">
+      <div class="max-w-[800px] mx-auto px-margin-mobile md:px-margin">
+        <div class="text-center mb-space-xl">
+          <span class="text-label-lg text-primary font-bold tracking-wider uppercase mb-2 block">Dudas Comunes</span>
+          <h2 id="faq-titulo" class="text-headline-lg-mobile md:text-headline-lg text-text-primary mb-space-sm">Preguntas Frecuentes</h2>
+          <p class="text-body-lg text-text-secondary">Todo lo que necesitas saber sobre el funcionamiento de VozSegura.</p>
+        </div>
+
+        <div class="flex flex-col gap-space-md">
+          <div class="bg-surface-card rounded-2xl overflow-hidden shadow-sm">
+            <h3>
+              <button type="button" data-accordion aria-expanded="false" aria-controls="content-faq-1"
+                      class="w-full min-h-[64px] px-6 py-4 flex items-center justify-between gap-4 text-left text-headline-sm text-text-primary hover:bg-surface-container transition-colors">
+                <span>¿Se requiere saber mucho de tecnología para usar la App?</span>
+                <span class="material-symbols-outlined text-primary text-[28px] shrink-0" aria-hidden="true">add</span>
+              </button>
+            </h3>
+            <div id="content-faq-1" class="hidden px-6 pb-6 pt-2 text-body-lg text-text-secondary">
+              No, para nada. La aplicación fue diseñada especialmente para personas mayores de 60 años. Funciona de manera automática: una vez instalada, tú solo contestas tus llamadas normalmente y el semáforo en pantalla te muestra en verde o rojo si es seguro. No necesitas presionar botones complicados ni configurar menús.
+            </div>
+          </div>
+
+          <div class="bg-surface-card rounded-2xl overflow-hidden shadow-sm">
+            <h3>
+              <button type="button" data-accordion aria-expanded="false" aria-controls="content-faq-2"
+                      class="w-full min-h-[64px] px-6 py-4 flex items-center justify-between gap-4 text-left text-headline-sm text-text-primary hover:bg-surface-container transition-colors">
+                <span>¿Es legal analizar la voz de una llamada en Perú?</span>
+                <span class="material-symbols-outlined text-primary text-[28px] shrink-0" aria-hidden="true">add</span>
+              </button>
+            </h3>
+            <div id="content-faq-2" class="hidden px-6 pb-6 pt-2 text-body-lg text-text-secondary">
+              Sí, es 100% legal. El sistema actúa como un filtro de seguridad local en el propio dispositivo del usuario (en estricto cumplimiento de la Ley de Protección de Datos Personales N° 29733 de Perú). El análisis biométrico verifica patrones espectrales para descartar síntesis de IA sin almacenar ni espiar las conversaciones privadas.
+            </div>
+          </div>
+
+          <div class="bg-surface-card rounded-2xl overflow-hidden shadow-sm">
+            <h3>
+              <button type="button" data-accordion aria-expanded="false" aria-controls="content-faq-3"
+                      class="w-full min-h-[64px] px-6 py-4 flex items-center justify-between gap-4 text-left text-headline-sm text-text-primary hover:bg-surface-container transition-colors">
+                <span>¿Qué hago si recibo una llamada pidiendo dinero urgente?</span>
+                <span class="material-symbols-outlined text-primary text-[28px] shrink-0" aria-hidden="true">add</span>
+              </button>
+            </h3>
+            <div id="content-faq-3" class="hidden px-6 pb-6 pt-2 text-body-lg text-text-secondary">
+              <p class="mb-2">Aplica el <strong>Protocolo de 60 Segundos:</strong></p>
+              <ol class="space-y-2">
+                <li><strong>1. Respira:</strong> recuerda que la urgencia es el método preferido del estafador.</li>
+                <li><strong>2. Cuelga:</strong> no sientas vergüenza de cortar la llamada de inmediato.</li>
+                <li><strong>3. Verifica:</strong> llama tú mismo al número habitual de tu familiar o pregúntale por la palabra clave secreta. Jamás transfieras dinero sin haber confirmado por videollamada o en persona.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="bg-surface-card rounded-2xl overflow-hidden shadow-sm">
+            <h3>
+              <button type="button" data-accordion aria-expanded="false" aria-controls="content-faq-4"
+                      class="w-full min-h-[64px] px-6 py-4 flex items-center justify-between gap-4 text-left text-headline-sm text-text-primary hover:bg-surface-container transition-colors">
+                <span>¿Mis datos y audios de llamadas quedan guardados?</span>
+                <span class="material-symbols-outlined text-primary text-[28px] shrink-0" aria-hidden="true">add</span>
+              </button>
+            </h3>
+            <div id="content-faq-4" class="hidden px-6 pb-6 pt-2 text-body-lg text-text-secondary">
+              No. VozSegura nunca guarda grabaciones de tus conversaciones personales. El análisis de frecuencias se ejecuta en milisegundos en la memoria del teléfono y se borra inmediatamente una vez emitido el resultado del semáforo. Tu privacidad familiar está protegida con encriptación de extremo a extremo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. CTA FINAL / DESCARGA
+         ========================================================= -->
+    <section id="descarga" class="w-full bg-primary-container text-on-primary py-space-xl lg:py-24" aria-labelledby="cta-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+        <div class="bg-primary/60 rounded-3xl p-space-lg md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+          <div class="max-w-xl">
+            <p class="flex items-center gap-2 text-tertiary-fixed mb-space-xs text-label-md">
+              <span class="material-symbols-outlined text-[24px]" aria-hidden="true">crisis_alert</span>
+              Prevención activa frente a extorsiones digitales
+            </p>
+            <h2 id="cta-titulo" class="text-headline-lg-mobile md:text-headline-lg mb-space-sm">No esperes a recibir una llamada sospechosa para proteger a quienes más quieres.</h2>
+            <p class="text-body-lg text-surface-variant">Haz la prueba rápida de riesgo o instala VozSegura hoy mismo en los teléfonos de tus padres.</p>
+          </div>
+          <div class="flex flex-col gap-space-sm w-full md:w-auto shrink-0">
+            <a href="#test-riesgo" data-track="click_hero_test_button" data-track-location="final_cta"
+               class="min-h-[56px] px-8 rounded-xl bg-traffic-danger text-on-primary text-label-lg hover:bg-traffic-danger-border flex items-center justify-center gap-2 shadow-lg transition-colors">
+              <span class="material-symbols-outlined text-[26px]" aria-hidden="true">shield</span>
+              Realizar Test Gratis Ahora
+            </a>
+            <a href="#" data-track="app_download_click" data-track-location="google_play"
+               class="min-h-[56px] px-8 rounded-xl bg-surface-card text-primary text-label-lg hover:bg-surface-container flex items-center justify-center gap-2 shadow-md transition-colors">
+              <span class="material-symbols-outlined text-[24px]" aria-hidden="true">shop</span>
+              Google Play
+            </a>
+            <a href="#" data-track="app_download_click" data-track-location="app_store"
+               class="min-h-[56px] px-8 rounded-xl bg-surface-card text-primary text-label-lg hover:bg-surface-container flex items-center justify-center gap-2 shadow-md transition-colors">
+              <span class="material-symbols-outlined text-[24px]" aria-hidden="true">phone_iphone</span>
+              App Store
+            </a>
+            <a href="tel:080000869"
+               class="min-h-[56px] px-8 rounded-xl ring-2 ring-surface-card text-on-primary text-label-lg hover:bg-primary flex items-center justify-center gap-2 transition-colors">
+              <span class="material-symbols-outlined text-[24px]" aria-hidden="true">call</span>
+              Línea Gratuita de Ayuda
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="w-full bg-surface-card shadow-[0_-1px_8px_rgba(0,0,0,0.04)]">
+    <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-space-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-lg lg:gap-gutter">
+        <div class="lg:col-span-5 flex flex-col gap-space-md">
+          <div class="flex items-center gap-space-sm">
+            <img src="assets/img/logo.svg" alt="" class="h-10 w-10" width="40" height="40" loading="lazy" />
+            <span class="text-headline-sm text-primary">VozSegura</span>
+          </div>
+          <p class="text-headline-sm text-text-primary">“Voz verificada, tranquilidad asegurada.”</p>
+          <p class="text-body-md text-text-secondary max-w-md">Sistema biométrico preventivo y protocolo de validación diseñado especialmente para personas mayores de 60 años y sus familias ante intentos de extorsión digital.</p>
+        </div>
+
+        <nav class="lg:col-span-4 flex flex-col gap-space-sm" aria-labelledby="footer-guias">
+          <h2 id="footer-guias" class="text-headline-sm text-primary mb-space-xs">Guías y Artículos de Ayuda</h2>
+          <ul class="flex flex-col gap-space-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[20px] mt-1" aria-hidden="true">article</span><a class="text-body-md text-text-secondary hover:text-primary underline-offset-4 hover:underline" href="#ayuda-faq">¿Cómo saber si la voz de mi familiar es real o IA?</a></li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[20px] mt-1" aria-hidden="true">key</span><a class="text-body-md text-text-secondary hover:text-primary underline-offset-4 hover:underline" href="#ayuda-faq">¿Cómo crear una palabra clave familiar?</a></li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[20px] mt-1" aria-hidden="true">gavel</span><a class="text-body-md text-text-secondary hover:text-primary underline-offset-4 hover:underline" href="#ayuda-faq">Pasos para denunciar una estafa telefónica en Perú</a></li>
+          </ul>
+        </nav>
+
+        <div class="lg:col-span-3 flex flex-col gap-space-md">
+          <h2 class="text-headline-sm text-primary">Contacto y Canales</h2>
+          <ul class="flex flex-col gap-space-xs text-text-secondary text-body-md">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true">call</span><a href="tel:015008800" class="hover:underline">Central: (01) 500-8800</a></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true">mail</span><a href="mailto:ayuda@vozsegura.pe" class="hover:underline">ayuda@vozsegura.pe</a></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true">location_on</span>Lima, Perú</li>
+          </ul>
+          <div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+            <a href="#" class="px-3 min-h-[48px] rounded-xl bg-surface-container flex items-center text-primary text-sm font-bold hover:bg-primary-container hover:text-on-primary transition-colors">TikTok</a>
+            <a href="#" class="px-3 min-h-[48px] rounded-xl bg-surface-container flex items-center text-primary text-sm font-bold hover:bg-primary-container hover:text-on-primary transition-colors">Facebook</a>
+            <a href="#" class="px-3 min-h-[48px] rounded-xl bg-surface-container flex items-center text-primary text-sm font-bold hover:bg-primary-container hover:text-on-primary transition-colors">Instagram</a>
+            <a href="#" class="px-3 min-h-[48px] rounded-xl bg-surface-container flex items-center text-primary text-sm font-bold hover:bg-primary-container hover:text-on-primary transition-colors">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-space-xl pt-space-md border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+        <p class="text-body-md text-text-muted text-center sm:text-left">© <span id="year">2026</span> VozSegura S.A.C. Todos los derechos reservados.</p>
+        <ul class="flex flex-wrap items-center justify-center gap-space-md">
+          <li><a class="text-label-md text-text-muted hover:text-primary hover:underline" href="#">Políticas de Privacidad</a></li>
+          <li><a class="text-label-md text-text-muted hover:text-primary hover:underline" href="#">Términos del Servicio</a></li>
+          <li><a class="text-label-md text-text-muted hover:text-primary hover:underline" href="#">Libro de Reclamaciones</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
