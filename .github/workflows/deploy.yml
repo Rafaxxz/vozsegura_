@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master, claude/zen-cerf-cau5xb, claude/eloquent-ptolemy-ftb5zt]
+    branches: [main, master, claude/zen-cerf-cau5xb]
   workflow_dispatch:
 
 permissions:
