@@ -30,7 +30,8 @@ vozsegura_/
 6. **Prueba gratis de 14 días** de SMART PRO con formulario de activación
 7. Planes: Freemium, SMART PRO, ELITE Familiar
 8. Preguntas frecuentes (acordeón accesible + datos estructurados `FAQPage` para SEO)
-9. Footer y **asistente flotante Vozy** (chat con respuestas guiadas y dictado por voz en navegadores compatibles)
+9. **Blog**: muestra las 3 últimas entradas de https://vozsegurape.blogspot.com/ (feed de Blogger); si no carga, queda un enlace al blog
+10. Footer y **asistente flotante Vozy** (chat con respuestas guiadas y dictado por voz en navegadores compatibles)
 
 ## Ver en local
 

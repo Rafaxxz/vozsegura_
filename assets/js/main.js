@@ -7,6 +7,7 @@
  *  5. Formulario de prueba gratis de 14 días
  *  6. Acordeón de preguntas frecuentes
  *  7. Asistente Vozy (chat)
+ *  8. Blog (últimas entradas desde Blogger)
  */
 (function () {
   "use strict";
@@ -623,6 +624,66 @@
     });
     show(vozy.mic);
   }
+
+  /* ---------------------------------------------------------------
+   * 8. Blog: últimas entradas desde Blogger (feed JSONP)
+   *    Si el feed no responde, queda la tarjeta con el enlace al blog.
+   * ------------------------------------------------------------- */
+  const BLOG_URL = "https://vozsegurape.blogspot.com/";
+  const blogGrid = $("#blog-posts");
+  const safeUrl = (u) => (typeof u === "string" && /^https?:\/\//i.test(u) ? u : null);
+
+  window.__vozseguraBlog = (data) => {
+    const entries = ((data && data.feed && data.feed.entry) || []).slice(0, 3);
+    const cards = entries
+      .map((entry) => {
+        const link = safeUrl(((entry.link || []).find((l) => l.rel === "alternate") || {}).href);
+        if (!link) return null;
+        // DOMParser no ejecuta scripts ni carga recursos del HTML de la entrada
+        const tmp = new DOMParser().parseFromString((entry.summary || entry.content || {}).$t || "", "text/html").body;
+        const summary = tmp.textContent.replace(/\s+/g, " ").trim();
+        const thumb = safeUrl(entry.media$thumbnail && entry.media$thumbnail.url.replace(/\/s\d+(-c)?\//, "/w640-h360-c/"));
+        const date = new Date((entry.published || {}).$t);
+
+        const card = document.createElement("a");
+        card.href = link;
+        card.target = "_blank";
+        card.rel = "noopener";
+        card.dataset.track = "click_blog";
+        card.dataset.trackLocation = "blog_post";
+        card.className = "fade-in rounded-2xl bg-surface-container-lowest shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow";
+        card.innerHTML = `
+          <span class="aspect-video w-full bg-surface-container-high text-primary flex items-center justify-center overflow-hidden">
+            <span class="material-symbols-outlined text-[48px]" aria-hidden="true">article</span>
+          </span>
+          <span class="p-space-md flex flex-col gap-space-xs flex-1">
+            <span class="font-label-sm text-label-sm text-on-surface-variant"></span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface"></span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant"></span>
+            <span class="mt-auto pt-space-sm font-label-md text-label-md text-primary font-bold flex items-center gap-1">Leer artículo <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span></span>
+          </span>`;
+        if (thumb) {
+          const img = document.createElement("img");
+          img.src = thumb;
+          img.alt = "";
+          img.loading = "lazy";
+          img.className = "w-full h-full object-cover";
+          img.onerror = () => img.remove();
+          card.firstElementChild.replaceChildren(img);
+        }
+        const [dateEl, titleEl, sumEl] = card.lastElementChild.children;
+        dateEl.textContent = isNaN(date) ? "" : date.toLocaleDateString("es-PE", { day: "numeric", month: "long", year: "numeric" });
+        titleEl.textContent = (entry.title || {}).$t || "Artículo del blog";
+        sumEl.textContent = summary.length > 150 ? summary.slice(0, 150).trimEnd() + "…" : summary;
+        return card;
+      })
+      .filter(Boolean);
+    if (cards.length) blogGrid.replaceChildren(...cards);
+  };
+  const feed = document.createElement("script");
+  feed.src = BLOG_URL + "feeds/posts/summary?alt=json-in-script&max-results=3&callback=__vozseguraBlog";
+  feed.async = true;
+  document.head.appendChild(feed);
 
   /* Esc cierra primero el test y luego el chat */
   document.addEventListener("keydown", (e) => {
