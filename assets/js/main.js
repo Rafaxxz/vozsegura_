@@ -8,6 +8,7 @@
  *  6. Acordeón de preguntas frecuentes
  *  7. Asistente Vozy (chat)
  *  8. Blog (últimas entradas desde Blogger)
+ *  9. Descarga de la app y video de presentación
  */
 (function () {
   "use strict";
@@ -684,6 +685,42 @@
   feed.src = BLOG_URL + "feeds/posts/summary?alt=json-in-script&max-results=3&callback=__vozseguraBlog";
   feed.async = true;
   document.head.appendChild(feed);
+
+  /* ---------------------------------------------------------------
+   * 9. Descarga de la app y video de presentación
+   *    Pega aquí los enlaces reales cuando la app esté publicada.
+   * ------------------------------------------------------------- */
+  const STORE_URLS = {
+    google_play: "", // ej. https://play.google.com/store/apps/details?id=pe.vozsegura.app
+    app_store: "", // ej. https://apps.apple.com/pe/app/vozsegura/id0000000000
+  };
+  $$("[data-store]").forEach((btn) => {
+    const url = STORE_URLS[btn.dataset.store];
+    if (url) {
+      btn.href = url;
+      btn.target = "_blank";
+      btn.rel = "noopener";
+    } else {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        show($("#store-msg"), "block");
+      });
+    }
+  });
+
+  const video = $("#intro-video");
+  $("#intro-video-play").addEventListener("click", () => {
+    const src = video.dataset.videoSrc;
+    if (!src) return show($("#intro-video-msg"), "block");
+    const frame = document.createElement("iframe");
+    frame.src = src + (src.includes("?") ? "&" : "?") + "autoplay=1";
+    frame.title = "Video de presentación de VozSegura";
+    frame.allow = "autoplay; encrypted-media; picture-in-picture";
+    frame.allowFullscreen = true;
+    frame.className = "absolute inset-0 w-full h-full";
+    video.replaceChildren(frame);
+    track("intro_video_play");
+  });
 
   /* Esc cierra primero el test y luego el chat */
   document.addEventListener("keydown", (e) => {

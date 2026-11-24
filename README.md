@@ -14,7 +14,7 @@ vozsegura_/
 │   ├── js/tailwind-config.js   # Tokens de diseño exportados de Stitch (colores, tipografía, espaciado)
 │   ├── js/main.js              # Lógica: menú, semáforo, test, prueba gratis, FAQ, Vozy, analytics
 │   ├── img/logo.svg            # Favicon (escudo + ondas de voz)
-│   └── img/vozy-mascota.png    # Mascota Vozy (test de riesgo y chat)
+│   ├── img/vozy-mascota.png    # Mascota Vozy (test de riesgo y chat)
 ├── .github/workflows/deploy.yml  # Deploy automático a GitHub Pages
 └── .nojekyll
 ```
@@ -30,8 +30,10 @@ vozsegura_/
 6. **Prueba gratis de 14 días** de SMART PRO con formulario de activación
 7. Planes: Freemium, SMART PRO, ELITE Familiar
 8. Preguntas frecuentes (acordeón accesible + datos estructurados `FAQPage` para SEO)
-9. **Blog**: muestra las 3 últimas entradas de https://vozsegurape.blogspot.com/ (feed de Blogger); si no carga, queda un enlace al blog
-10. Footer y **asistente flotante Vozy** (chat con respuestas guiadas y dictado por voz en navegadores compatibles)
+9. **Nosotros**: propuesta de valor, misión, visión, valores, video de presentación y equipo con roles
+10. **Blog**: muestra las 3 últimas entradas de https://vozsegurape.blogspot.com/ (feed de Blogger); si no carga, queda un enlace al blog
+11. **Descarga la App**: botones de Google Play y App Store, código QR y 3 pasos para instalar
+12. Footer y **asistente flotante Vozy** (chat con respuestas guiadas y dictado por voz en navegadores compatibles)
 
 ## Ver en local
 
@@ -61,6 +63,9 @@ Para activar GA4, descomenta el bloque en el `<head>` de `index.html` y coloca t
 
 - Los formularios (`#lead-form` del test y `#free-trial-form` de la prueba gratis) todavía **no envían datos a ningún
   servicio**: solo muestran la confirmación. Conectarlos a un backend/CRM (WhatsApp Business API, Formspree, HubSpot…) en `main.js`.
+- La app aún no está en las tiendas: pega los enlaces en `STORE_URLS` (`main.js`). Mientras estén vacíos,
+  los botones muestran "llega muy pronto" y llevan al formulario de prueba gratis.
+- Video de presentación: pega el enlace *embed* de YouTube en `data-video-src` de `#intro-video` (`index.html`).
 - Vozy responde con un guion fijo (`VOZY_TOPICS` en `main.js`); no usa un modelo de IA.
 - Las fotos de testimonios se cargan desde el hosting temporal de Stitch (con iniciales de respaldo si fallan):
   conviene reemplazarlas por archivos propios en `assets/img/`.
