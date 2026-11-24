@@ -80,16 +80,20 @@
         <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#test-riesgo">Test de Riesgo</a>
         <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#como-funciona">Cómo Funciona</a>
         <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#planes">Planes</a>
-        <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#prueba-gratis">Prueba Gratis <span class="ml-1 px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed text-[12px] font-bold align-middle">Nuevo</span></a>
+        <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#prueba-gratis">Prueba Gratis</a>
         <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#ayuda-faq">Ayuda FAQ</a>
+        <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#nosotros">Nosotros</a>
         <a class="px-1.5 2xl:px-2.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant whitespace-nowrap hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#blog">Blog</a>
       </nav>
 
       <div class="flex items-center gap-space-sm shrink-0">
         <button type="button" data-open-test data-track="click_hero_test_button" data-track-location="header"
                 class="hidden md:inline-flex xl:hidden 2xl:inline-flex items-center justify-center min-h-[52px] px-space-md bg-surface-container-lowest text-primary-container font-label-lg text-label-lg rounded-lg whitespace-nowrap shadow-[0_2px_8px_-2px_rgba(15,23,42,0.12)] hover:bg-surface-container-low hover:text-primary transition-all">Probar Test Gratis</button>
-        <a href="#prueba-gratis" data-track="click_trial_cta" data-track-location="header"
-           class="hidden sm:inline-flex items-center justify-center min-h-[52px] px-space-md bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg whitespace-nowrap shadow-[0_4px_12px_-2px_rgba(29,78,216,0.35)] hover:bg-primary transition-all">Activar 14 Días Gratis</a>
+        <a href="#descarga" data-track="click_download_cta" data-track-location="header"
+           class="hidden sm:inline-flex items-center justify-center gap-2 min-h-[52px] px-space-md bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg whitespace-nowrap shadow-[0_4px_12px_-2px_rgba(29,78,216,0.35)] hover:bg-primary transition-all">
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">download</span>
+          <span class="leading-tight text-left">Descarga la App<span class="hidden 2xl:inline"> Gratis</span></span>
+        </a>
         <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"
                 class="xl:hidden w-[52px] h-[52px] rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
           <span class="material-symbols-outlined text-[30px]" aria-hidden="true">menu</span>
@@ -107,7 +111,9 @@
         <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#planes">Planes</a></li>
         <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#prueba-gratis">Prueba Gratis</a></li>
         <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#ayuda-faq">Ayuda FAQ</a></li>
+        <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#nosotros">Nosotros</a></li>
         <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#blog">Blog</a></li>
+        <li><a class="block py-4 px-3 rounded-lg hover:bg-surface-container-low" href="#descarga">Descarga la App</a></li>
       </ul>
       <a href="#prueba-gratis" data-track="click_trial_cta" data-track-location="mobile_menu"
          class="flex items-center justify-center min-h-[56px] rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg">Activar 14 Días Gratis</a>
@@ -577,7 +583,129 @@
     </section>
 
     <!-- =========================================================
-         7. PREGUNTAS FRECUENTES
+         7. NOSOTROS: propuesta de valor, misión, visión, valores y equipo
+         ========================================================= -->
+    <section id="nosotros" class="w-full py-space-2xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low to-surface-container-lowest" aria-labelledby="nosotros-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin flex flex-col gap-space-lg">
+
+        <!-- Marca + propuesta de valor -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+          <div class="lg:col-span-7 rounded-3xl bg-surface-container-lowest shadow-md p-space-lg md:p-space-xl flex flex-col sm:flex-row items-center gap-space-lg overflow-hidden">
+            <div class="flex-1 flex flex-col gap-space-sm text-center sm:text-left">
+              <span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Quiénes somos</span>
+              <h2 id="nosotros-titulo" class="font-display text-display-mobile md:text-display font-extrabold text-primary">Voz<span class="text-secondary">Segura</span></h2>
+              <p class="font-headline-sm text-headline-sm text-on-surface font-bold">Voz verificada, tranquilidad asegurada.</p>
+              <p class="font-body-md text-body-md text-on-surface-variant">Nacimos para que ningún padre o abuelo vuelva a perder sus ahorros por una voz falsa que suena igual a la de su hijo.</p>
+            </div>
+            <img src="assets/img/vozy-mascota.png" alt="Vozy, la mascota de VozSegura: un abuelo sonriente con un escudo" class="w-44 sm:w-52 shrink-0 rounded-2xl" width="208" height="235" loading="lazy" />
+          </div>
+
+          <div class="lg:col-span-5 rounded-3xl bg-primary text-on-primary shadow-xl p-space-lg md:p-space-xl flex flex-col gap-space-sm justify-center">
+            <span class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-white/15 font-label-md text-label-md font-bold">
+              <span class="material-symbols-outlined text-[22px]" aria-hidden="true">target</span> Propuesta de Valor
+            </span>
+            <p class="font-body-lg text-body-lg">Una app con inteligencia artificial que <strong>detecta en tiempo real las voces clonadas</strong> en las llamadas de adultos mayores, avisa a sus hijos al instante y los acompaña con un asistente paciente, para que cada familia conteste el teléfono sin miedo.</p>
+          </div>
+        </div>
+
+        <!-- Misión, visión, valores y video -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg items-stretch">
+          <article class="rounded-2xl bg-secondary-container/30 p-space-lg flex flex-col gap-space-sm">
+            <h3 class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg font-bold">
+              <span class="material-symbols-outlined text-[22px]" aria-hidden="true">flag</span> Misión
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface">Proteger a los adultos mayores y a sus familias de las estafas telefónicas con voz clonada por IA, con tecnología simple, educación preventiva y una red de cuidado que los acompaña en cada llamada.</p>
+          </article>
+
+          <article class="rounded-2xl bg-primary-fixed/60 p-space-lg flex flex-col gap-space-sm">
+            <h3 class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg font-bold">
+              <span class="material-symbols-outlined text-[22px]" aria-hidden="true">visibility</span> Visión
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface">Ser la plataforma líder en Latinoamérica en protección contra el fraude de voz, reconocida por devolverle a millones de familias la confianza al contestar el teléfono.</p>
+          </article>
+
+          <article class="rounded-2xl bg-amber-50 p-space-lg flex flex-col gap-space-sm">
+            <h3 class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-amber-500 text-on-surface font-label-lg text-label-lg font-bold">
+              <span class="material-symbols-outlined text-[22px]" aria-hidden="true">diamond</span> Valores
+            </h3>
+            <ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[22px] mt-0.5" aria-hidden="true">check_circle</span><span>Protección con dignidad: nunca culpamos a nuestros mayores</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[22px] mt-0.5" aria-hidden="true">check_circle</span><span>Privacidad ante todo: no guardamos tus conversaciones</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[22px] mt-0.5" aria-hidden="true">check_circle</span><span>Accesibilidad sin excepciones</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[22px] mt-0.5" aria-hidden="true">check_circle</span><span>Innovación con propósito</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[22px] mt-0.5" aria-hidden="true">check_circle</span><span>Cercanía y confianza con cada familia</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl bg-surface-container-lowest shadow-md p-space-md flex flex-col gap-space-sm">
+            <h3 class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-error text-on-error font-label-lg text-label-lg font-bold">
+              <span class="material-symbols-outlined icon-fill text-[22px]" aria-hidden="true">smart_display</span> Nuestro Video
+            </h3>
+            <!-- Para activar el video, pega en data-video-src el enlace "embed" de YouTube (ej. https://www.youtube.com/embed/ID) -->
+            <div id="intro-video" data-video-src="" class="relative flex-1 min-h-[220px] rounded-xl overflow-hidden bg-gradient-to-br from-primary to-primary-container">
+              <img src="assets/img/vozy-mascota.png" alt="" class="absolute left-3 bottom-0 h-[85%] rounded-t-xl opacity-95" loading="lazy" />
+              <span class="absolute top-3 right-3 font-headline-sm text-headline-sm font-extrabold text-on-primary">Voz<span class="text-secondary-fixed">Segura</span></span>
+              <button id="intro-video-play" type="button" aria-label="Reproducir video de presentación"
+                      class="absolute right-6 bottom-6 w-16 h-16 rounded-full bg-error text-on-error shadow-xl flex items-center justify-center hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined icon-fill text-[40px]" aria-hidden="true">play_arrow</span>
+              </button>
+              <p id="intro-video-msg" role="status" class="hidden absolute inset-x-3 top-12 p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm text-center shadow-md">Nuestro video de presentación se estrena muy pronto.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Equipo -->
+        <div class="rounded-3xl bg-surface-container-lowest shadow-md p-space-lg md:p-space-xl flex flex-col gap-space-lg" aria-labelledby="equipo-titulo">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+            <div>
+              <h3 id="equipo-titulo" class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg font-bold">
+                <span class="material-symbols-outlined text-[22px]" aria-hidden="true">groups</span> Nuestro Equipo
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-sm max-w-2xl">Un equipo multidisciplinario apasionado por la tecnología, la seguridad y el cuidado de nuestros mayores.</p>
+            </div>
+            <p class="flex items-center gap-2 font-label-lg text-label-lg text-secondary font-bold">
+              <span class="material-symbols-outlined icon-fill" aria-hidden="true">favorite</span>
+              Juntos por familias que contestan sin miedo
+            </p>
+          </div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-lg">
+          <li class="flex flex-col items-center text-center gap-2">
+            <span class="w-24 h-24 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-md text-headline-md font-extrabold shadow-md ring-4 ring-surface-container-lowest" aria-hidden="true">RP</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface" title="Rafael Jared Peña Hernández">Rafael Peña</span>
+            <span class="font-label-sm text-label-sm font-bold bg-primary text-on-primary px-3 py-1 rounded-full">Fundador y CEO</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Lidera la visión de VozSegura y las alianzas con familias, bancos y municipios.</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <span class="w-24 h-24 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-headline-md text-headline-md font-extrabold shadow-md ring-4 ring-surface-container-lowest" aria-hidden="true">WC</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface" title="Williams Joel Concha Salirrosas">Williams Concha</span>
+            <span class="font-label-sm text-label-sm font-bold text-primary">Director de Tecnología</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Construye la app, la infraestructura y la protección de los datos de cada familia.</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <span class="w-24 h-24 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-headline-md text-headline-md font-extrabold shadow-md ring-4 ring-surface-container-lowest" aria-hidden="true">YR</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface" title="Yvan Aaron Alonso Reyes Centeno">Yvan Reyes</span>
+            <span class="font-label-sm text-label-sm font-bold text-primary">Director de IA y Biometría de Voz</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Entrena el modelo que distingue una voz real de una voz clonada en segundos.</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <span class="w-24 h-24 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline-md text-headline-md font-extrabold shadow-md ring-4 ring-surface-container-lowest" aria-hidden="true">FS</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface" title="Fiana Sakiyama Sulca">Fiana Sakiyama</span>
+            <span class="font-label-sm text-label-sm font-bold text-primary">Directora de Producto y Experiencia</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseña cada pantalla para que un adulto mayor la use sin ayuda y sin estrés.</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <span class="w-24 h-24 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-headline-md text-headline-md font-extrabold shadow-md ring-4 ring-surface-container-lowest" aria-hidden="true">FO</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface" title="Franco Leandro Ochoa López">Franco Ochoa</span>
+            <span class="font-label-sm text-label-sm font-bold text-primary">Director de Marketing y Comunidad</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Acerca VozSegura a las familias con contenido, talleres y el blog de prevención.</span>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. PREGUNTAS FRECUENTES
          ========================================================= -->
     <section id="ayuda-faq" class="w-full py-space-2xl bg-surface-container-low" aria-labelledby="faq-titulo">
       <div class="max-w-[840px] mx-auto px-margin-mobile md:px-margin">
@@ -651,7 +779,7 @@
       </div>
     </section>
     <!-- =========================================================
-         8. BLOG (entradas cargadas desde Blogger)
+         9. BLOG (entradas cargadas desde Blogger)
          ========================================================= -->
     <section id="blog" class="w-full py-space-2xl bg-surface" aria-labelledby="blog-titulo">
       <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
@@ -677,6 +805,113 @@
               <span class="font-body-md text-body-md text-on-surface-variant">Entra a vozsegurape.blogspot.com para ver todos los artículos del blog.</span>
             </span>
           </a>
+        </div>
+      </div>
+    </section>
+    <!-- =========================================================
+         10. DESCARGA LA APP
+         ========================================================= -->
+    <section id="descarga" class="w-full py-space-2xl bg-gradient-to-br from-surface-container-low via-surface-container-lowest to-primary-fixed/40 overflow-hidden" aria-labelledby="descarga-titulo">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin flex flex-col gap-space-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+          <!-- Texto -->
+          <div class="lg:col-span-5 flex flex-col gap-space-md">
+            <span class="self-start px-space-md py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold uppercase tracking-wider">App VozSegura</span>
+            <h2 id="descarga-titulo" class="font-display text-display-mobile md:text-[52px] md:leading-[60px] font-extrabold text-on-surface">Descarga la App <span class="text-primary">Gratis</span></h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">Tu escudo contra las estafas con voz clonada: simple, automático y pensado para que tus padres lo usen sin complicaciones.</p>
+            <ul class="flex flex-col gap-space-xs font-label-lg text-label-lg text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[24px]" aria-hidden="true">check_circle</span>Semáforo anti-clonación en cada llamada</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[24px]" aria-hidden="true">check_circle</span>Alertas a tus hijos por WhatsApp</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[24px]" aria-hidden="true">check_circle</span>Asistente Vozy con voz pausada</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[24px]" aria-hidden="true">check_circle</span>Palabra clave familiar protegida</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined icon-fill text-secondary text-[24px]" aria-hidden="true">check_circle</span>Soporte humano las 24 horas</li>
+            </ul>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="lg:col-span-4 flex justify-center">
+            <div class="relative w-[260px] h-[520px] rounded-[44px] bg-inverse-surface p-3 shadow-2xl rotate-[-4deg]" aria-hidden="true">
+              <div class="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-6 rounded-full bg-inverse-surface z-10"></div>
+              <div class="w-full h-full rounded-[34px] bg-gradient-to-b from-surface-container-lowest via-primary-fixed/50 to-secondary-container/50 flex flex-col items-center justify-between pt-14 pb-space-md px-space-sm text-center overflow-hidden">
+                <div class="flex items-center gap-2">
+                  <span class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">verified_user</span></span>
+                  <span class="font-headline-md text-headline-md font-extrabold text-primary">Voz<span class="text-secondary">Segura</span></span>
+                </div>
+                <img src="assets/img/vozy-mascota.png" alt="" class="w-40 rounded-2xl" loading="lazy" />
+                <div class="w-full rounded-xl bg-secondary text-on-secondary px-space-sm py-2 flex items-center justify-center gap-2 font-label-md text-label-md font-bold">
+                  <span class="material-symbols-outlined icon-fill text-[22px]">verified</span> Protección activa
+                </div>
+                <p class="font-label-md text-label-md font-bold text-primary">Voz verificada,<br />tranquilidad asegurada</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tiendas + QR -->
+          <div class="lg:col-span-3 flex flex-col items-center lg:items-stretch gap-space-md">
+            <p class="font-headline-md text-headline-md font-extrabold text-primary text-center">¡Descárgala ahora!</p>
+            <p class="font-label-md text-label-md text-on-surface-variant text-center -mt-space-sm">Disponible en:</p>
+            <a href="#descarga" data-store="google_play" data-track="app_download_click" data-track-location="google_play"
+               class="w-full max-w-[260px] min-h-[64px] px-space-md rounded-xl bg-inverse-surface text-white flex items-center gap-space-sm shadow-lg hover:bg-on-surface transition-colors">
+              <svg class="w-8 h-8 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Z"/><path fill="#FBBC04" d="m17.3 8.5-3.5 3.5 3.5 3.5 3.9-2.2c1.1-.6 1.1-2.1 0-2.7l-3.9-2.1Z"/><path fill="#EA4335" d="M3.6 22.2 13.8 12l3.5 3.5L5.4 22.3c-.6.3-1.3.3-1.8-.1Z"/><path fill="#4285F4" d="M3.6 1.8c.5-.4 1.2-.4 1.8-.1l11.9 6.8-3.5 3.5L3.6 1.8Z"/></svg>
+              <span class="flex flex-col leading-tight text-left"><span class="font-body-sm text-[13px]">Descárgala en</span><span class="font-headline-sm text-headline-sm font-bold">Google Play</span></span>
+            </a>
+            <a href="#descarga" data-store="app_store" data-track="app_download_click" data-track-location="app_store"
+               class="w-full max-w-[260px] min-h-[64px] px-space-md rounded-xl bg-inverse-surface text-white flex items-center gap-space-sm shadow-lg hover:bg-on-surface transition-colors">
+              <svg class="w-8 h-8 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7ZM14.1 5.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z"/></svg>
+              <span class="flex flex-col leading-tight text-left"><span class="font-body-sm text-[13px]">Descárgala en</span><span class="font-headline-sm text-headline-sm font-bold">App Store</span></span>
+            </a>
+            <p id="store-msg" role="status" class="hidden w-full max-w-[260px] p-space-sm rounded-lg bg-primary-fixed text-on-primary-fixed font-body-sm text-body-sm text-center">VozSegura llega muy pronto a las tiendas. <a href="#prueba-gratis" class="font-bold underline underline-offset-2">Déjanos tu WhatsApp</a> y te avisamos el día del lanzamiento.</p>
+            <div class="w-full max-w-[260px] rounded-2xl bg-surface-container-lowest shadow-md p-space-sm flex items-center gap-space-sm">
+              <img src="assets/img/qr-descarga.svg" alt="Código QR para abrir VozSegura en tu celular" class="w-24 h-24 shrink-0" width="96" height="96" loading="lazy" />
+              <p class="font-body-sm text-body-sm text-on-surface-variant"><strong class="block text-primary font-bold">O escanea el QR</strong>y abre VozSegura en tu celular.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Funciones -->
+        <ul class="grid grid-cols-2 md:grid-cols-5 gap-space-md rounded-2xl bg-surface-container-lowest shadow-sm p-space-md">
+          <li class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+            <span class="w-14 h-14 rounded-2xl bg-secondary-container text-on-secondary-fixed flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[30px]" aria-hidden="true">traffic</span></span>
+            <span class="font-label-md text-label-md font-bold text-on-surface">Semáforo anti-clonación</span>
+          </li>
+          <li class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+            <span class="w-14 h-14 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[30px]" aria-hidden="true">support_agent</span></span>
+            <span class="font-label-md text-label-md font-bold text-on-surface">Asistente Vozy</span>
+          </li>
+          <li class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+            <span class="w-14 h-14 rounded-2xl bg-error-container text-error flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[30px]" aria-hidden="true">notifications_active</span></span>
+            <span class="font-label-md text-label-md font-bold text-on-surface">Alertas a la familia</span>
+          </li>
+          <li class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[30px]" aria-hidden="true">key</span></span>
+            <span class="font-label-md text-label-md font-bold text-on-surface">Palabra clave segura</span>
+          </li>
+          <li class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+            <span class="w-14 h-14 rounded-2xl bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[30px]" aria-hidden="true">elderly</span></span>
+            <span class="font-label-md text-label-md font-bold text-on-surface">Diseño para mayores</span>
+          </li>
+        </ul>
+
+        <!-- Pasos -->
+        <div class="rounded-2xl bg-primary-fixed/50 p-space-lg flex flex-col lg:flex-row lg:items-center gap-space-lg">
+          <p class="font-headline-md text-headline-md font-extrabold text-primary shrink-0 lg:max-w-[220px]">Descargar la App es muy fácil</p>
+          <ol class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          <li class="flex items-center gap-space-sm">
+            <span class="w-11 h-11 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm font-extrabold flex items-center justify-center shrink-0">1</span>
+            <span class="w-12 h-12 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-[28px]" aria-hidden="true">store</span></span>
+            <span class="flex flex-col"><span class="font-label-lg text-label-lg font-bold text-on-surface">Elige tu tienda de aplicaciones</span><span class="font-body-sm text-body-sm text-on-surface-variant">Google Play o App Store</span></span>
+          </li>
+          <li class="flex items-center gap-space-sm">
+            <span class="w-11 h-11 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm font-extrabold flex items-center justify-center shrink-0">2</span>
+            <span class="w-12 h-12 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-[28px]" aria-hidden="true">download</span></span>
+            <span class="flex flex-col"><span class="font-label-lg text-label-lg font-bold text-on-surface">Descarga VozSegura</span><span class="font-body-sm text-body-sm text-on-surface-variant">Gratis y en menos de 1 minuto</span></span>
+          </li>
+          <li class="flex items-center gap-space-sm">
+            <span class="w-11 h-11 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm font-extrabold flex items-center justify-center shrink-0">3</span>
+            <span class="w-12 h-12 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-[28px]" aria-hidden="true">how_to_reg</span></span>
+            <span class="flex flex-col"><span class="font-label-lg text-label-lg font-bold text-on-surface">Regístrate y activa tu protección</span><span class="font-body-sm text-body-sm text-on-surface-variant">Con ayuda de Vozy, paso a paso</span></span>
+          </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -737,6 +972,7 @@
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4" href="#ayuda-faq">Cumplimiento RGPD Senior</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4" href="#ayuda-faq">Aviso Legal Institucional</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4" href="#planes">Garantía de Satisfacción 30 Días</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4" href="#nosotros">Nuestro Equipo</a>
       </nav>
     </div>
 
