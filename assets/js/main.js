@@ -19,7 +19,8 @@
   const hide = (el, display = "flex") => { el.classList.add("hidden"); el.classList.remove(display); };
 
   const SUPPORT_PHONE = "900 834 221";
-  const SITE_URL = location.origin + location.pathname;
+  // Dirección pública de una página del sitio (funciona en cualquier subcarpeta de GitHub Pages)
+  const pageUrl = (file) => new URL(file, location.href).href;
 
   /* ---------------------------------------------------------------
    * 1. Analytics
@@ -351,6 +352,8 @@
     if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
   }
   $$("[data-open-test]").forEach((el) => el.addEventListener("click", openTest));
+  // Abre el test directo con ?test=1 (útil para enlaces compartidos)
+  if (new URLSearchParams(location.search).has("test")) openTest();
   $$("[data-close-test]").forEach((el) => el.addEventListener("click", closeTest));
   quiz.modal.addEventListener("click", (e) => {
     // clic en el fondo oscuro (fuera de la tarjeta)
@@ -393,7 +396,7 @@
     "https://api.whatsapp.com/send?text=" +
     encodeURIComponent(
       "¡Hola! Hice este test rápido para medir nuestro riesgo ante estafas por llamadas con voz clonada por IA. " +
-        "Te sugiero probarlo para protegernos en familia: " + SITE_URL + "#test-riesgo"
+        "Te sugiero probarlo para protegernos en familia: " + pageUrl("test-de-riesgo.html")
     );
 
   renderSemaphore();
@@ -402,7 +405,7 @@
   /* ---------------------------------------------------------------
    * 5. Prueba gratis de 14 días
    * ------------------------------------------------------------- */
-  $("#free-trial-form").addEventListener("submit", (e) => {
+  $("#free-trial-form")?.addEventListener("submit", (e) => {
     e.preventDefault();
     const form = e.target;
     const btn = $("#trial-submit-btn");
@@ -460,7 +463,7 @@
         "La prueba te da SMART PRO completo durante 14 días, sin tarjeta de crédito y sin cobros automáticos.",
         "Al terminar, eliges: continuar por S/ 19.90 al mes o quedarte en el plan Freemium gratuito.",
       ],
-      action: { label: "Ir a activar mi prueba gratis", href: "#prueba-gratis" },
+      action: { label: "Ir a activar mi prueba gratis", href: "prueba-gratis.html" },
     },
     {
       id: "keyword", label: "¿Cómo creo una palabra clave familiar?",
@@ -482,7 +485,7 @@
       answer: [
         "Hay tres opciones: Freemium (S/ 0 de por vida), SMART PRO (S/ 19.90 al mes, con 14 días gratis) y ELITE Familiar (S/ 39.90 al mes, hasta 5 adultos mayores).",
       ],
-      action: { label: "Ver los planes", href: "#planes" },
+      action: { label: "Ver los planes", href: "planes.html" },
     },
     {
       id: "human", label: "Quiero hablar con una persona",
@@ -525,7 +528,7 @@
       el.className =
         "mt-1 min-h-[48px] px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center text-center hover:bg-primary-container";
       el.textContent = action.label;
-      el.addEventListener("click", () => (action.test ? openTest() : action.href.startsWith("#") && closeVozy()));
+      el.addEventListener("click", () => (action.test ? openTest() : !action.href.startsWith("tel:") && closeVozy()));
       bubble.appendChild(el);
     }
     const meta = document.createElement("span");
@@ -681,10 +684,12 @@
       .filter(Boolean);
     if (cards.length) blogGrid.replaceChildren(...cards);
   };
-  const feed = document.createElement("script");
-  feed.src = BLOG_URL + "feeds/posts/summary?alt=json-in-script&max-results=3&callback=__vozseguraBlog";
-  feed.async = true;
-  document.head.appendChild(feed);
+  if (blogGrid) {
+    const feed = document.createElement("script");
+    feed.src = BLOG_URL + "feeds/posts/summary?alt=json-in-script&max-results=3&callback=__vozseguraBlog";
+    feed.async = true;
+    document.head.appendChild(feed);
+  }
 
   /* ---------------------------------------------------------------
    * 9. Descarga de la app y video de presentación
@@ -709,7 +714,7 @@
   });
 
   const video = $("#intro-video");
-  $("#intro-video-play").addEventListener("click", () => {
+  $("#intro-video-play")?.addEventListener("click", () => {
     const src = video.dataset.videoSrc;
     if (!src) return show($("#intro-video-msg"), "block");
     const frame = document.createElement("iframe");
